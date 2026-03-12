@@ -4,19 +4,19 @@ default:
     @just --list
 
 lint-swift:
-    bun run lint:swift
+    ./scripts/lint-swift.sh
 
 lint-swift-fix:
-    bun run lint:swift:fix
+    ./scripts/lint-swift.sh --fix
 
 test-swift:
-    bun run test:swift
+    ./scripts/test-swift.sh
 
 check-swift:
-    bun run check:swift
+    ./scripts/lint-swift.sh && ./scripts/test-swift.sh
 
 commit-swift +args:
-    bun run commit:swift -- {{args}}
+    ./scripts/commit-swift-checked.sh {{args}}
 
 dev-backend:
     cd backend && bun run dev

@@ -3,10 +3,10 @@ node_modules
 build/
 .signatures.json
 tmp
-app/win/codesign
+zotero/app/win/codesign
 .swiftlint_cache
 **/.build/
 **/.swiftpm/
 DerivedData/
 *.xcuserstate
-BetterCite.xcworkspace/xcuserdata/
+Citration.xcworkspace/xcuserdata/
