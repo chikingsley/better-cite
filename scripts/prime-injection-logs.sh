@@ -3,8 +3,8 @@
 set -euo pipefail
 
 ROOT_DIR="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-WORKSPACE="${1:-BetterCite.xcworkspace}"
-SCHEME="${2:-BetterCiteApp}"
+WORKSPACE="${1:-Citration.xcworkspace}"
+SCHEME="${2:-CitrationApp}"
 CONFIGURATION="${3:-Debug}"
 
 INJECTION_TMP_DIR="$HOME/Library/Containers/com.johnholdsworth.InjectionIII/Data/tmp"
@@ -21,7 +21,7 @@ if ! command -v rg >/dev/null 2>&1; then
   exit 1
 fi
 
-BUILD_LOG="$(mktemp -t bettercite-injection-build.XXXXXX.log)"
+BUILD_LOG="$(mktemp -t citration-injection-build.XXXXXX.log)"
 trap 'rm -f "$BUILD_LOG"' EXIT
 
 echo "Building $SCHEME with EMIT_FRONTEND_COMMAND_LINES=YES ..."

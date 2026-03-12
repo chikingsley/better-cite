@@ -1,4 +1,4 @@
-# SwiftLint configuration for better-cite Swift targets
+# SwiftLint configuration for citration Swift targets
 strict: true
 
 included:
@@ -56,7 +56,7 @@ excluded:
   - .swiftlint_cache
   - SourcePackages
   - DerivedData
-  - BetterCite.xcworkspace
+  - Citration.xcworkspace
 
 line_length:
   warning: 150

@@ -1,7 +1,7 @@
-# BetterCite P0 Specification (Local-First)
+# Citration P0 Specification (Local-First)
 
 ## Why This Exists
-P0 is the minimum product foundation so BetterCite is reliable as a daily local app (not a demo).
+P0 is the minimum product foundation so Citration is reliable as a daily local app (not a demo).
 This document defines exactly what we build, where code should live, and how each step is tested.
 
 ## P0 Outcome
@@ -27,7 +27,7 @@ Details and execution slices live in `docs/saas-standard-architecture.md`.
 ## Architecture Decisions (P0)
 
 ### ADR-001: Local Metadata Persistence
-Decision: Use `SwiftData` for P0 via a new package `BCDataLocal`.
+Decision: Use `SwiftData` for P0 via a new package `CTDataLocal`.
 Reasoning:
 1. Apple-native persistence with good macOS integration for app lifecycle and observation-driven UI
 2. Fewer moving parts for local-first single-user P0 while we harden domain boundaries
@@ -55,14 +55,14 @@ Reasoning:
 ## Target Package Boundaries
 
 ### Existing Packages Used In P0
-1. `BCCommon`: shared value types
-2. `BCDomain`: domain entities + store protocols
-3. `BCMetadataProviders`: provider protocols + concrete DOI resolver
-4. `BCStorage`: attachment storage abstraction/local store
-5. `Apps/BetterCiteApp`: app composition + UI
+1. `CTCommon`: shared value types
+2. `CTDomain`: domain entities + store protocols
+3. `CTMetadataProviders`: provider protocols + concrete DOI resolver
+4. `CTStorage`: attachment storage abstraction/local store
+5. `Apps/CitrationApp`: app composition + UI
 
 ### New Package In P0
-1. `BCDataLocal`
+1. `CTDataLocal`
 Purpose: SwiftData-backed repository implementations for domain protocols.
 
 ## P0 Ticket Specs
@@ -72,9 +72,9 @@ Purpose: SwiftData-backed repository implementations for domain protocols.
 Replace `InMemoryItemStore` bootstrap with on-disk store implementation.
 
 ### Code Areas
-1. New package: `Packages/BCDataLocal`
+1. New package: `Packages/CTDataLocal`
 2. Protocol conformance layer for `BCItemStore`
-3. App bootstrap in `Apps/BetterCiteApp/Sources/BetterCiteApp/AppModel.swift`
+3. App bootstrap in `Apps/CitrationApp/Sources/CitrationApp/AppModel.swift`
 
 ### Data Model (P0 minimum)
 1. `ItemRecord`
@@ -230,7 +230,7 @@ Ensure local dev checks are deterministic and fast.
 6. BC-006 harness hardening pass
 
 ## Library Choices For P0
-1. Persistence: SwiftData (`BCDataLocal`)
+1. Persistence: SwiftData (`CTDataLocal`)
 2. Networking: Foundation `URLSession` + `URLProtocol` mocking for tests
 3. Hashing: `CryptoKit` for attachment checksum
 4. UI: SwiftUI + NavigationSplitView/Table/Inspector patterns already in place
@@ -244,6 +244,6 @@ Ensure local dev checks are deterministic and fast.
 
 ## "Ready To Start" Checklist
 1. Confirm answers to the 4 open questions above
-2. Create `BCDataLocal` package skeleton
+2. Create `CTDataLocal` package skeleton
 3. Add first migration-safe item schema
 4. Swap `AppModel.bootstrap()` to persistent implementation

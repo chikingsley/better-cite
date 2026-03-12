@@ -2,11 +2,11 @@
 
 The `BC*` prefix is an internal namespace for Better Cite modules.
 
-- `BCStorage` -- object storage connectors (local + S3-compatible providers)
-- `BCMetadataProviders` -- metadata provider contracts and resolver
-- `BCCitationEngine` -- citation formatting contracts and stubs
-- `BCDomain` -- shared domain models and core store protocols
-- `BCDesignSystem` -- reusable SwiftUI components and design tokens
+- `CTStorage` -- object storage connectors (local + S3-compatible providers)
+- `CTMetadataProviders` -- metadata provider contracts and resolver
+- `CTCitationEngine` -- citation formatting contracts and stubs
+- `CTDomain` -- shared domain models and core store protocols
+- `CTDesignSystem` -- reusable SwiftUI components and design tokens
 
 ## SwiftLint
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace version="1.0">
+  <FileRef location="group:Apps/CitrationMac/CitrationMac.xcodeproj"/>
+  <FileRef location="group:Packages/CTStorage"/>
+  <FileRef location="group:Packages/CTMetadataProviders"/>
+  <FileRef location="group:Packages/CTCitationEngine"/>
+  <FileRef location="group:Packages/CTDomain"/>
+  <FileRef location="group:Packages/CTDesignSystem"/>
+  <FileRef location="group:Packages/CTCommon"/>
+  <FileRef location="group:Packages/CTDataLocal"/>
+  <FileRef location="group:Packages/CTDataRemote"/>
+</Workspace>

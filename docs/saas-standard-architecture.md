@@ -1,10 +1,10 @@
-# BetterCite Standard SaaS Architecture
+# Citration Standard SaaS Architecture
 
 ## Decision
 We are using a standard multi-tenant SaaS model:
 1. Shared backend API + shared database cluster
 2. Tenant/workspace isolation by `workspace_id`
-3. Tenant-facing subdomains like `https://{slug}.bettercite.app`
+3. Tenant-facing subdomains like `https://{slug}.citration.app`
 4. DNS and tenant provisioning handled by backend services, never by desktop clients
 
 This replaces the per-user Cloudflare Tunnel idea as the default product path.
@@ -19,13 +19,13 @@ This replaces the per-user Cloudflare Tunnel idea as the default product path.
 1. User signs up/logs in at central auth endpoint
 2. User chooses workspace slug (for example `acme-lab`)
 3. Backend validates slug and creates workspace row
-4. Backend creates DNS record (or maps wildcard route) for `acme-lab.bettercite.app`
+4. Backend creates DNS record (or maps wildcard route) for `acme-lab.citration.app`
 5. TLS is handled by platform edge
 6. Desktop app stores `workspaceSlug` and authenticates with bearer session tokens
 
 ## Routing Pattern
-1. UI host: `https://{slug}.bettercite.app`
-2. API host: `https://api.bettercite.app/v1`
+1. UI host: `https://{slug}.citration.app`
+2. API host: `https://api.citration.app/v1`
 3. API requests include workspace context from token claims (preferred) and optional `X-Workspace-Slug` for diagnostics
 
 ## Security Baseline
@@ -104,4 +104,4 @@ Done when:
 2. Download works across devices for same account
 
 ## First Build Target For This Turn
-We start with VS-001 + VS-002 foundations in code (`BCDataRemote`) while local-first P0 continues.
+We start with VS-001 + VS-002 foundations in code (`CTDataRemote`) while local-first P0 continues.

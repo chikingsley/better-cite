@@ -1,0 +1,73 @@
+name: CitrationMac
+options:
+  minimumXcodeGenVersion: 2.44.0
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    PRODUCT_BUNDLE_IDENTIFIER: com.citration.app
+    CODE_SIGN_STYLE: Automatic
+    GENERATE_INFOPLIST_FILE: NO
+packages:
+  CTCommon:
+    path: ../../Packages/CTCommon
+  CTDataLocal:
+    path: ../../Packages/CTDataLocal
+  CTDataRemote:
+    path: ../../Packages/CTDataRemote
+  CTStorage:
+    path: ../../Packages/CTStorage
+  CTMetadataProviders:
+    path: ../../Packages/CTMetadataProviders
+  CTCitationEngine:
+    path: ../../Packages/CTCitationEngine
+  CTDomain:
+    path: ../../Packages/CTDomain
+  CTDesignSystem:
+    path: ../../Packages/CTDesignSystem
+  Inject:
+    url: https://github.com/krzysztofzablocki/Inject.git
+    from: 1.5.2
+targets:
+  CitrationMac:
+    type: application
+    platform: macOS
+    info:
+      path: Config/CitrationMac-Info.plist
+    sources:
+      - path: Sources/CitrationMac
+    dependencies:
+      - package: CTCommon
+      - package: CTDataLocal
+      - package: CTDataRemote
+      - package: CTStorage
+      - package: CTMetadataProviders
+      - package: CTCitationEngine
+      - package: CTDomain
+      - package: CTDesignSystem
+      - package: Inject
+    settings:
+      base:
+        PRODUCT_NAME: Citration
+      configs:
+        Debug:
+          CODE_SIGNING_ALLOWED: NO
+          CODE_SIGNING_REQUIRED: NO
+          OTHER_LDFLAGS:
+            - "$(inherited)"
+            - -Xlinker
+            - -interposable
+          EMIT_FRONTEND_COMMAND_LINES: YES
+schemes:
+  CitrationMac:
+    build:
+      targets:
+        CitrationMac: all
+    run:
+      config: Debug
+    profile:
+      config: Release
+    archive:
+      config: Release

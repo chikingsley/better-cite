@@ -35,7 +35,7 @@ Build a Swift-native citation manager inspired by Zotero workflows, without copy
 - Full plugin ecosystem compatibility
 
 ## BC Design System Clarification
-`BCDesignSystem` is not a third-party framework. It is the proposed internal Swift package name for your reusable UI component library (the equivalent of your "shadcn for this app").
+`CTDesignSystem` is not a third-party framework. It is the proposed internal Swift package name for your reusable UI component library (the equivalent of your "shadcn for this app").
 
 ## Feature-to-Screen Map
 
@@ -104,17 +104,17 @@ Build a Swift-native citation manager inspired by Zotero workflows, without copy
 ## Suggested Swift Package Structure
 
 ```text
-BetterCite.xcworkspace
+Citration.xcworkspace
   Apps/
-    BetterCiteApp/                # iOS + macOS targets
+    CitrationApp/                # iOS + macOS targets
   Packages/
-    BCDesignSystem/               # Internal tokens + reusable UI components
-    BCDomain/                     # Entities, value objects, use-case protocols
-    BCDataLocal/                  # SwiftData/SQLite persistence, indexing
-    BCDataRemote/                 # API client, DTOs, auth, sync transport
-    BCStorage/                    # Object storage connector abstraction + adapters
-    BCMetadataProviders/          # DOI/ISBN/PMID/arXiv/OpenLibrary ingestion adapters
-    BCCitationEngine/             # CSL formatting + cite command surface
+    CTDesignSystem/               # Internal tokens + reusable UI components
+    CTDomain/                     # Entities, value objects, use-case protocols
+    CTDataLocal/                  # SwiftData/SQLite persistence, indexing
+    CTDataRemote/                 # API client, DTOs, auth, sync transport
+    CTStorage/                    # Object storage connector abstraction + adapters
+    CTMetadataProviders/          # DOI/ISBN/PMID/arXiv/OpenLibrary ingestion adapters
+    CTCitationEngine/             # CSL formatting + cite command surface
     BCFeatureLibrary/
     BCFeatureReader/
     BCFeatureNotes/
@@ -274,7 +274,7 @@ Implementation notes:
 
 ### Phase 1 (Weeks 1-2)
 - Scaffold workspace + package boundaries
-- Build `BCDesignSystem` primitives
+- Build `CTDesignSystem` primitives
 - Implement Library workspace with local SQLite-backed metadata
 
 ### Phase 2 (Weeks 3-4)
